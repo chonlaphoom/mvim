@@ -25,3 +25,6 @@ vim.opt.cursorline = false
 vim.opt.scrolloff = 10
 vim.o.tabstop = 2
 vim.o.smartindent = true
+vim.o.shiftwidth = 2
+vim.o.softtabstop = 2
+vim.o.expandtab = false
