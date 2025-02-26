@@ -20,6 +20,7 @@ require("lazy").setup({
 	require("plugins.todo"),
 	require("plugins.treesitter"),
 	require("plugins.which-key"),
+	require("plugins.copilot"),
 	{
 		"cdmill/neomodern.nvim",
 		lazy = false,
