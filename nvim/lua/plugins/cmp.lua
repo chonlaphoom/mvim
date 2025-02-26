@@ -38,7 +38,6 @@ return {
 				["<C-f>"] = cmp.mapping.scroll_docs(4),
 
 				["<Enter>"] = cmp.mapping.confirm({ select = true }),
-				["<Tab>"] = cmp.mapping.confirm({ select = true }),
 
 				["<C-Space>"] = cmp.mapping.complete({}),
 
