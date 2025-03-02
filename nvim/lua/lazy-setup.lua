@@ -26,6 +26,7 @@ require("lazy").setup({
 		config = function()
 			require("kanagawa").setup({
 				compile = true,
+				theme = "lotus",
 			})
 			vim.cmd("colorscheme kanagawa")
 		end,
