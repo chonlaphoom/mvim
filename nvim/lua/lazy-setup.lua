@@ -22,11 +22,15 @@ require("lazy").setup({
 	require("plugins.which-key"),
 	require("plugins.copilot"),
 	{
-		"cdmill/neomodern.nvim",
-		lazy = false,
-		priority = 1000,
+		"rebelot/kanagawa.nvim",
 		config = function()
-			vim.cmd("colorscheme coffeecat")
+			require("kanagawa").setup({
+				compile = true,
+			})
+			vim.cmd("colorscheme kanagawa")
+		end,
+		build = function()
+			vim.cmd("KanagawaCompile")
 		end,
 	},
 })
