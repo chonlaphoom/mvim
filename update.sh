@@ -1,4 +1,4 @@
 #!/bin/bash
 cp -r ./nvim $HOME/.config/
-echo "completed: $HOME"
+echo "config update completed: $HOME"
 

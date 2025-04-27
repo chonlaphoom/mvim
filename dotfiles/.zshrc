@@ -1,3 +1,3 @@
 # location - $HOME
 
-alias nv=nvim
+alias v=nvim
