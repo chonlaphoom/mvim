@@ -30,6 +30,12 @@ return { -- Autoformat
 		formatters_by_ft = {
 			lua = { "stylua" },
 			typescript = { "prettier", "trim_whitespace" },
+			javascript = { "prettier", "trim_whitespace" },
+		},
+		formatter = {
+			prettier = {
+				require_cwd = true,
+			},
 		},
 	},
 }
