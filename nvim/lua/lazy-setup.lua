@@ -10,6 +10,13 @@ end ---@diagnostic disable-next-line: undefined-field
 vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup({
+	{
+		"nvim-tree/nvim-web-devicons",
+		config = function()
+			require("nvim-web-devicons").setup()
+		end,
+		opts = {},
+	},
 	require("plugins.cmp"),
 	require("plugins.conform"),
 	require("plugins.gitsigns"),
@@ -20,7 +27,6 @@ require("lazy").setup({
 	require("plugins.todo"),
 	require("plugins.treesitter"),
 	require("plugins.which-key"),
-	require("plugins.copilot"),
 	{
 		"rebelot/kanagawa.nvim",
 		config = function()
@@ -34,4 +40,5 @@ require("lazy").setup({
 			vim.cmd("KanagawaCompile")
 		end,
 	},
+	-- require("plugins.copilot"),
 })
