@@ -10,7 +10,6 @@ end ---@diagnostic disable-next-line: undefined-field
 vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup({
-	require("plugins.nvim-web-devicons"),
 	require("plugins.cmp"),
 	require("plugins.conform"),
 	require("plugins.gitsigns"),
