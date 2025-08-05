@@ -14,6 +14,9 @@ return {
 			"query",
 			"vim",
 			"vimdoc",
+			"go",
+			"javascript",
+			"typescript",
 		},
 		auto_install = true,
 		highlight = {
