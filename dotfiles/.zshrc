@@ -1,6 +1,7 @@
 alias v=nvim
 alias vi=v
 alias tree="lsd --tree --color=never"
+alias ..='cd ..'
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
