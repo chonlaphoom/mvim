@@ -31,3 +31,6 @@ vim.o.shiftwidth = 2
 vim.o.softtabstop = 2
 vim.o.expandtab = false
 vim.o.textwidth = 100
+
+-- copilot
+vim.g.copilot_settings = { selectedCompletionModel = "gpt-4o-copilot" }

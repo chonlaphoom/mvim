@@ -33,5 +33,6 @@ require("lazy").setup({
 			vim.cmd("KanagawaCompile")
 		end,
 	},
-	-- require("plugins.copilot"),
+	require("plugins.copilot"),
+	{ "Olical/conjure" },
 })

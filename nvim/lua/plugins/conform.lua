@@ -32,6 +32,7 @@ return { -- Autoformat
 			typescript = { "prettier", "trim_whitespace" },
 			javascript = { "prettier", "trim_whitespace" },
 			yaml = { "yamlfmt" },
+			json = { "prettier" },
 		},
 		formatter = {
 			prettier = {

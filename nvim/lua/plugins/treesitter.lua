@@ -17,6 +17,7 @@ return {
 			"go",
 			"javascript",
 			"typescript",
+			"clojure",
 		},
 		auto_install = true,
 		highlight = {
