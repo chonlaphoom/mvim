@@ -10,8 +10,6 @@ export PATH=$PATH:$HOME/go/bin
 # postgressql
 export PATH="/opt/homebrew/opt/postgresql@15/bin:$PATH"
 
-export PATH="$PATH:/Users/chonlaphoom/projects/worldbanc/private/bin"
-
 # python
 export PATH="$(brew --prefix python)/libexec/bin:$PATH"
 
