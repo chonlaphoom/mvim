@@ -1,7 +1,7 @@
 return { -- Fuzzy Finder (files, lsp, etc)
 	"nvim-telescope/telescope.nvim",
 	event = "VimEnter",
-	branch = "master",
+	branch = "0.1.x",
 	dependencies = {
 		"nvim-lua/plenary.nvim",
 		{
@@ -18,9 +18,19 @@ return { -- Fuzzy Finder (files, lsp, etc)
 	},
 	config = function()
 		require("telescope").setup({
+			defaults = {
+				border = false,
+				layout_strategy = "bottom_pane",
+				layout_config = { width = 0.5, height = 0.5, preview_cutoff = 120, prompt_position = "bottom" },
+			},
 			extensions = {
 				["ui-select"] = {
-					require("telescope.themes").get_dropdown(),
+					require("telescope.themes").get_ivy(),
+				},
+			},
+			pickers = {
+				color_scheme = {
+					enable_preview = false,
 				},
 			},
 		})

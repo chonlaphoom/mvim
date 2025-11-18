@@ -34,5 +34,5 @@ require("lazy").setup({
 		end,
 	},
 	require("plugins.copilot"),
-	{ "Olical/conjure" },
+	-- { "Olical/conjure" },
 })

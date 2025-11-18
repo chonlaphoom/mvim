@@ -18,6 +18,7 @@ return {
 			"javascript",
 			"typescript",
 			"clojure",
+			"latex",
 		},
 		auto_install = true,
 		highlight = {
