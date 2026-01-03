@@ -1,3 +1,5 @@
+# Use zsh configurations as a guideline for installing necessary tools and setting up my environment.
+
 alias v=nvim
 alias tree="lsd --tree --color=never"
 alias ls="ls --color=auto"
@@ -10,6 +12,10 @@ alias gp="git push"
 alias glog="git --no-pager log --oneline --graph --decorate --parents --all"
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+warning() {
+		echo -e "Warning: $1"
+}
 
 # NOTE: go binaries are installed in $HOME/go/bin
 if [[ ":$PATH:" != *":$HOME/go/bin:"* ]]; then
@@ -28,3 +34,12 @@ fi
 
 # Generated for envman. Do not edit.
 [ -s "$HOME/.config/envman/load.sh" ] && source "$HOME/.config/envman/load.sh"
+
+# check if tmux is installed
+if command -v tmux >/dev/null 2>&1; then
+	if [ ! -f ~/.tmux.conf ]; then
+		warning "tmux is installed but ~/.tmux.conf not found."
+	fi
+else
+	warning "tmux is not installed."
+fi
