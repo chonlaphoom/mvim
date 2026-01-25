@@ -33,6 +33,8 @@ return { -- Autoformat
 			javascript = { "prettier", "trim_whitespace" },
 			yaml = { "yamlfmt" },
 			json = { "prettier" },
+			go = { "gofmt" },
+			markdown = { "prettier", "trim_whitespace" },
 		},
 		formatter = {
 			prettier = {
