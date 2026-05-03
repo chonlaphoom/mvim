@@ -43,3 +43,5 @@ if command -v tmux >/dev/null 2>&1; then
 else
 	warning "tmux is not installed."
 fi
+
+source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh || echo "zsh-autosuggestions not found. Please check if it's installed and the path is correct."
