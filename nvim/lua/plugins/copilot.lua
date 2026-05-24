@@ -14,7 +14,7 @@ return {
 					dismiss = "<C-x>",
 				},
 			},
-			panel = { enabled = true },
+			panel = { enabled = false },
 			copilot_model = "gpt-4o-copilot",
 			server_opts_overrides = {
 				root_dir = function(fname)
