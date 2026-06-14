@@ -15,7 +15,7 @@ return {
 				},
 			},
 			panel = { enabled = false },
-			copilot_model = "gpt-4o-copilot",
+			copilot_model = "gpt-41-copilot",
 			server_opts_overrides = {
 				root_dir = function(fname)
 					local git_path = vim.fs.find(".git", { upward = true, path = fname })[1]
