@@ -1,6 +1,3 @@
-#!/bin/sh
+#!/usr/bin/env sh
 set -e 
-
-cp -r ./nvim $HOME/.config/
-echo "config updated $HOME"
-
+cp -ri ./nvim $HOME/.config/

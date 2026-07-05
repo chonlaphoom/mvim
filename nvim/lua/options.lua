@@ -26,6 +26,7 @@ vim.opt.listchars = { tab = "» ", trail = "·", nbsp = "␣" }
 vim.opt.inccommand = "split"
 vim.opt.cursorline = false
 vim.opt.scrolloff = 10
+vim.opt.colorcolumn = "80"
 vim.o.tabstop = 2
 vim.o.smartindent = true
 vim.o.shiftwidth = 2
