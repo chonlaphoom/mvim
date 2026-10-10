@@ -19,23 +19,39 @@ require("lazy").setup({
 	require("plugins.telescope"),
 	require("plugins.todo"),
 	require("plugins.treesitter"),
-	require("plugins.which-key"),
+	require("plugins.copilot"),
+  {
+    "mfussenegger/nvim-jdtls",
+  },
+	{
+		"p0209p/naysayer.vim",
+		priority = 1000,
+		lazy = false,
+		config = function()
+			vim.cmd("colorscheme naysayer")
+		end,
+	},
 	{
 		"rebelot/kanagawa.nvim",
 		config = function()
 			require("kanagawa").setup({
 				compile = true,
-				theme = "lotus",
+				theme = "wave",
+				background = {
+					dark = "wave",
+				},
 			})
-			vim.cmd("colorscheme kanagawa")
+		vim.cmd("colorscheme kanagawa")
 		end,
 		build = function()
 			vim.cmd("KanagawaCompile")
 		end,
 	},
-	require("plugins.copilot"),
+	-- require("plugins.which-key"),
 	-- { "Olical/conjure" },
 })
+
+-- vim.cmd("colorscheme torte")
 
 vim.api.nvim_create_autocmd("TextYankPost", {
 	group = vim.api.nvim_create_augroup("highlight-yank", { clear = true }),

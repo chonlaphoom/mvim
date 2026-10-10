@@ -1,4 +1,5 @@
 # Use zsh configurations as a guideline for installing necessary tools and setting up my environment.
+export PS1="%F{green}%m%f %c $ "
 
 alias v=nvim
 alias tree="lsd --tree --color=never"

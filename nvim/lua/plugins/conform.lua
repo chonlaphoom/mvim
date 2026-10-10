@@ -14,12 +14,12 @@ return { -- Autoformat
 	},
 	opts = {
 		notify_on_error = false,
-		format_on_save = function()
-			return {
-				timeout_ms = 500,
-				lsp_format = true,
-			}
-		end,
+		-- format_on_save = function()
+		-- 	return {
+		-- 		timeout_ms = 500,
+		-- 		lsp_format = true,
+		-- 	}
+		-- end,
 		formatters_by_ft = {
 			lua = { "stylua" },
 			typescript = { "prettier", "trim_whitespace" },

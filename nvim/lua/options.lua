@@ -7,10 +7,7 @@ vim.opt.mouse = "a"
 vim.opt.showmode = false
 vim.opt.guicursor = "a:blinkon10"
 
--- Sync clipboard between OS and Neovim.
-vim.schedule(function()
-	vim.opt.clipboard = "unnamedplus"
-end)
+vim.opt.clipboard = "unnamedplus"
 vim.opt.breakindent = true
 vim.opt.undofile = true
 vim.opt.ignorecase = true
