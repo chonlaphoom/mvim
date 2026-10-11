@@ -9,15 +9,21 @@ return {
 		},
 	},
 	{
-		-- Main LSP Configuration
 		"neovim/nvim-lspconfig",
 		dependencies = {
 			{ "williamboman/mason.nvim", opts = {} },
 			"williamboman/mason-lspconfig.nvim",
 			"WhoIsSethDaniel/mason-tool-installer.nvim",
 
-			-- Useful status updates for LSP.
-			{ "j-hui/fidget.nvim", opts = {} },
+			-- status updates for LSP.
+			{
+				"j-hui/fidget.nvim",
+				opts = {
+					progress = {
+						suppress_on_insert = true,
+					},
+				},
+			},
 
 			-- Allows extra capabilities provided by nvim-cmp
 			"hrsh7th/cmp-nvim-lsp",
@@ -105,18 +111,17 @@ return {
 			local ensure_installed = vim.tbl_keys(servers or {})
 			vim.list_extend(ensure_installed, {
 				"stylua", -- Used to format Lua code
-        "vtsls", -- Used to validate TypeScript code
+				"vtsls", -- Used to validate TypeScript code
 			})
 			require("mason-tool-installer").setup({ ensure_installed = ensure_installed })
 
 			require("mason-lspconfig").setup({
-        ensure_installed = {
-          "lua_ls",
-          "vtsls",
-          "gopls",
-          "jdtls",
-        },
-        automatic_enable = true,
+				ensure_installed = {
+					"lua_ls",
+					"vtsls",
+					"gopls",
+				},
+				automatic_enable = true,
 				handlers = {
 					function(server_name)
 						local server = servers[server_name] or {}

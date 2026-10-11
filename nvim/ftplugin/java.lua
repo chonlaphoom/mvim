@@ -1,34 +1,55 @@
+local jdtls = require("jdtls")
+
+local root_markers = { "gradlew", "mvnw", ".git", "pom.xml", "build.gradle" }
+local root_dir = require("jdtls.setup").find_root(root_markers)
+
+-- If no root directory is found, abort to prevent loading errors
+if not root_dir then
+	return
+end
+
+-- Create an isolated workspace directory per project (prevents cache collisions)
+local project_name = vim.fn.fnamemodify(root_dir, ":p:h:t")
+local workspace_dir = vim.fn.stdpath("cache") .. "/jdtls/workspace/" .. project_name
+
+-- Locate Mason's jdtls installation path automatically
+local mason_registry = require("mason-registry")
+-- ($home)/.local/share/nvim/mason/packages/jdtls
+local jdtls_package = mason_registry.get_package("jdtls")
+
+local jdtls_path = jdtls_package:get_install_path()
+
+-- explicitly set the Java executable path for macOS using /usr/libexec/java_home
+-- NOTE: I installed Java 21 via homebrew using temurin@21. Don't forget to update this
+-- configuration if installing a different version of Java or using a different installation method.
+local java_home = vim.fn.trim(vim.fn.system("/usr/libexec/java_home -v 21"))
+local java_executable = java_home .. "/bin/java"
+
 local config = {
-	name = "jdtls",
-
-	-- `cmd` defines the executable to launch eclipse.jdt.ls.
-	-- `jdtls` must be available in $PATH and you must have Python3.9 for this to work.
-	--
-	-- As alternative you could also avoid the `jdtls` wrapper and launch
-	-- eclipse.jdt.ls via the `java` executable
-	-- See: https://github.com/eclipse/eclipse.jdt.ls#running-from-the-command-line
-	cmd = { "jdtls" },
-
-	-- `root_dir` must point to the root of your project.
-	-- See `:help vim.fs.root`
-	root_dir = vim.fs.root(0, { "gradlew", ".git", "mvnw" }),
-
-	-- Here you can configure eclipse.jdt.ls specific settings
-	-- See https://github.com/eclipse/eclipse.jdt.ls/wiki/Running-the-JAVA-LS-server-from-the-command-line#initialize-request
-	-- for a list of options
+	cmd = {
+		java_executable,
+		"-Declipse.application=org.eclipse.jdt.ls.core.id1",
+		"-Dosgi.bundles.defaultStartLevel=4",
+		"-Declipse.product=org.eclipse.jdt.ls.core.product",
+		"-Dlog.protocol=true",
+		"-Dlog.level=ALL",
+		"-Xmx2g",
+		"--add-modules=ALL-SYSTEM",
+		"--add-opens",
+		"java.base/java.util=ALL-UNNAMED",
+		"--add-opens",
+		"java.base/java.lang=ALL-UNNAMED",
+		"-jar",
+		vim.fn.glob(jdtls_path .. "/plugins/org.eclipse.equinox.launcher_*.jar"),
+		"-configuration",
+		jdtls_path .. "/config_mac_arm", -- Use config_linux for Linux systems
+		"-data",
+		workspace_dir,
+	},
+	root_dir = root_dir,
 	settings = {
 		java = {},
 	},
-
-	-- This sets the `initializationOptions` sent to the language server
-	-- If you plan on using additional eclipse.jdt.ls plugins like java-debug
-	-- you'll need to set the `bundles`
-	--
-	-- See https://codeberg.org/mfussenegger/nvim-jdtls#java-debug-installation
-	--
-	-- If you don't plan on any eclipse.jdt.ls plugins you can remove this
-	init_options = {
-		bundles = {},
-	},
 }
-require("jdtls").start_or_attach(config)
+
+jdtls.start_or_attach(config)

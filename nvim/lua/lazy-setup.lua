@@ -20,9 +20,7 @@ require("lazy").setup({
 	require("plugins.todo"),
 	require("plugins.treesitter"),
 	require("plugins.copilot"),
-  {
-    "mfussenegger/nvim-jdtls",
-  },
+	{ "mfussenegger/nvim-jdtls" },
 	{
 		"p0209p/naysayer.vim",
 		priority = 1000,
@@ -41,7 +39,7 @@ require("lazy").setup({
 					dark = "wave",
 				},
 			})
-		vim.cmd("colorscheme kanagawa")
+			vim.cmd("colorscheme kanagawa")
 		end,
 		build = function()
 			vim.cmd("KanagawaCompile")

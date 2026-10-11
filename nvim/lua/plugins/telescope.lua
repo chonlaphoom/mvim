@@ -18,6 +18,7 @@ return { -- Fuzzy Finder (files, lsp, etc)
 	},
 	config = function()
 		require("telescope").setup({
+      bg = "#1e222a",
 			defaults = {
 				border = false,
 				layout_strategy = "bottom_pane",
