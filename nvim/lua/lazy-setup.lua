@@ -50,6 +50,7 @@ require("lazy").setup({
 })
 
 -- vim.cmd("colorscheme torte")
+-- vim.cmd("colorscheme naysayer")
 
 vim.api.nvim_create_autocmd("TextYankPost", {
 	group = vim.api.nvim_create_augroup("highlight-yank", { clear = true }),

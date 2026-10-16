@@ -47,8 +47,28 @@ local config = {
 		workspace_dir,
 	},
 	root_dir = root_dir,
+	init_options = {
+		bundles = {},
+	},
 	settings = {
-		java = {},
+		java = {
+			home = java_home,
+			eclipse = {
+				downloadSources = true,
+			},
+			maven = {
+				downloadSources = true,
+			},
+			implementationsCodeLens = {
+				enabled = true,
+			},
+			referencesCodeLens = {
+				enabled = true,
+			},
+			format = {
+				enabled = true,
+			},
+		},
 	},
 }
 

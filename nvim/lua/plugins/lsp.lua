@@ -121,7 +121,12 @@ return {
 					"vtsls",
 					"gopls",
 				},
-				automatic_enable = true,
+				-- jdtls is launched manually via nvim-jdtls (ftplugin/java.lua)
+				-- with a per-project workspace; letting mason-lspconfig also
+				-- enable it would start a second conflicting instance.
+				automatic_enable = {
+					exclude = { "jdtls" },
+				},
 				handlers = {
 					function(server_name)
 						local server = servers[server_name] or {}
